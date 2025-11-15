@@ -6,78 +6,202 @@ import PackageCard from "../components/PackageCard.astro";
 ---
 
 <Layout>
-    <Hero imageSrc="/img4.jpg" title="Catering för alla tillfällen" subtitle="Välj ett färdigt paket eller anpassa efter behov – vi hjälper dig gärna." overlayClass="bg-black/55">
-        <a href="tel:+46701234567" class="px-6 py-3 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition">Ring: +46 70 123 45 67</a>
-        <a href="#forfragan" class="px-6 py-3 rounded border border-white/80 text-white font-semibold hover:bg-white hover:text-black transition">Skicka förfrågan</a>
-    </Hero>
 
-    <!-- Example packages -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <Reveal>
-            <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">Menyer</h2>
-        </Reveal>
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+  <Hero
+    imageSrc="/img4.jpg"
+    title="Catering för alla tillfällen"
+    subtitle="Välj ett färdigt paket eller anpassa efter behov – vi hjälper dig gärna."
+    overlayClass="bg-black/55"
+  >
+    <a
+      href="#forfragan"
+      class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:brightness-95 transition"
+    >
+      Skicka förfrågan
+    </a>
+    <a
+      href="tel:+46701234567"
+      class="px-6 py-3 rounded border border-white/80 text-white font-semibold hover:bg-white hover:text-black transition"
+    >
+      Ring: +46 70 123 45 67
+    </a>
+  </Hero>
 
-        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <PackageCard imageSrc="/img1.jpg" title="Paket: 20 personer" items={["Hummus, baba ganoush, tabbouleh","Kyckling shawarma & falafel","Ris, sallad, pickles, bröd","Vitlökssås & tahini"]} priceText="fr. 4 800 kr" ctaHref="#forfragan" />
-            <PackageCard delayClass="delay-150" imageSrc="/img2.jpg" title="Paket: 40 personer" items={["Meze urval (4 st) för delning","Kyckling shawarma, lammspett, falafel","Ris, potatis, grönsaker, bröd","Såser & tillbehör"]} priceText="fr. 9 200 kr" ctaHref="#forfragan" />
-            <PackageCard delayClass="delay-300" imageSrc="/img3.jpg" title="Paket: 60 personer" items={["Meze-buffé (6 st) med bröd","Tre varmrätter (t.ex. kyckling, lamm, vegetariskt)","Sidor: ris, sallad, pickles","Dessert: baklava (tillägg)"]} priceText="fr. 13 500 kr" ctaHref="#forfragan" />
+
+  <!-- =========================
+       MENYER / PACKAGES SECTION
+  ========================== -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <Reveal>
+      <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">
+        Menyer
+      </h2>
+    </Reveal>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <PackageCard
+        imageSrc="/img1.jpg"
+        title="Paket: 20 personer"
+        items={[
+          "Hummus, baba ganoush, tabbouleh",
+          "Kyckling shawarma & falafel",
+          "Ris, sallad, pickles, bröd",
+          "Vitlökssås & tahini"
+        ]}
+        priceText="fr. 4 800 kr"
+        ctaHref="#forfragan"
+      />
+
+      <PackageCard
+        delayClass="delay-150"
+        imageSrc="/img2.jpg"
+        title="Paket: 40 personer"
+        items={[
+          "Meze urval (4 st) för delning",
+          "Kyckling shawarma, lammspett, falafel",
+          "Ris, potatis, grönsaker, bröd",
+          "Såser & tillbehör"
+        ]}
+        priceText="fr. 9 200 kr"
+        ctaHref="#forfragan"
+      />
+
+      <PackageCard
+        delayClass="delay-300"
+        imageSrc="/img3.jpg"
+        title="Paket: 60 personer"
+        items={[
+          "Meze-buffé (6 st) med bröd",
+          "Tre varmrätter (t.ex. kyckling, lamm, vegetariskt)",
+          "Sidor: ris, sallad, pickles",
+          "Dessert: baklava (tillägg)"
+        ]}
+        priceText="fr. 13 500 kr"
+        ctaHref="#forfragan"
+      />
+    </div>
+
+    <p class="mt-8 text-center text-gray-600 reveal">
+      Anpassa gärna innehåll och specialkost. Priser beroende på val och upplägg.
+    </p>
+  </section>
+
+
+  <!-- =========================
+       REQUEST FORM SECTION
+  ========================== -->
+  <section id="forfragan" class="max-w-3xl mx-auto px-6 pb-24">
+    <Reveal>
+      <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">
+        Skicka en förfrågan
+      </h2>
+    </Reveal>
+
+    <Reveal>
+      <form
+        class="mt-10 grid grid-cols-1 gap-6"
+        method="post"
+        action="/api/mail"
+      >
+        <!-- CONTACT INFO -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Namn</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">E-post</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+            />
+          </div>
         </div>
 
-        <p class="mt-8 text-center text-gray-600 reveal">Anpassa gärna innehåll och specialkost. Priser beroende på val och upplägg.</p>
-    </section>
+        <!-- EVENT DETAILS -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Telefon</label>
+            <input
+              type="tel"
+              name="phone"
+              inputmode="tel"
+              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+            />
+          </div>
 
-    <!-- Request form -->
-    <section id="forfragan" class="max-w-3xl mx-auto px-6 pb-24">
-        <Reveal>
-            <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">Skicka en förfrågan</h2>
-        </Reveal>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Datum</label>
+            <input
+              type="date"
+              name="date"
+              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+            />
+          </div>
 
-        <Reveal>
-        <form class="mt-10 grid grid-cols-1 gap-6" method="post" action="#" onsubmit="event.preventDefault()">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Namn</label>
-                    <input type="text" name="name" required class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1" />
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">E‑post</label>
-                    <input type="email" name="email" required class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1" />
-                </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Telefon</label>
-                    <input type="tel" name="phone" inputmode="tel" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1" />
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Datum</label>
-                    <input type="date" name="date" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1" />
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Antal gäster</label>
-                    <input type="number" name="guests" min="1" step="1" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1" />
-                </div>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Välj paket</label>
-                <select name="package" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1">
-                    <option value="20">Paket 20 personer</option>
-                    <option value="40">Paket 40 personer</option>
-                    <option value="60">Paket 60 personer</option>
-                    <option value="custom">Anpassat</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Önskemål / allergier</label>
-                <textarea name="message" rows="5" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"></textarea>
-            </div>
-            <div class="flex items-center justify-between">
-                <p class="text-sm text-gray-600">Vi återkommer vanligtvis inom 24 timmar.</p>
-                <button type="submit" class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition">Skicka</button>
-            </div>
-        </form>
-        </Reveal>
-    </section>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Antal gäster</label>
+            <input
+              type="number"
+              name="guests"
+              min="1"
+              step="1"
+              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+            />
+          </div>
+        </div>
 
-    
+        <!-- PACKAGE SELECTION -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Välj paket</label>
+          <select
+            name="package"
+            class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+          >
+            <option value="20 personer">Paket 20 personer</option>
+            <option value="40 personer">Paket 40 personer</option>
+            <option value="60 personer">Paket 60 personer</option>
+            <option value="anpassat">Anpassat</option>
+          </select>
+        </div>
+
+        <!-- MESSAGE -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Önskemål / allergier</label>
+          <textarea
+            name="message"
+            rows="5"
+            class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
+          ></textarea>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-gray-600">
+            Vi återkommer vanligtvis inom 24 timmar.
+          </p>
+
+          <button
+            type="submit"
+            class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition"
+          >
+            Skicka
+          </button>
+        </div>
+      </form>
+    </Reveal>
+  </section>
+
 </Layout>
+
