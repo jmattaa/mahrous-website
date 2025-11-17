@@ -6,61 +6,86 @@ import FeatureCard from "../components/FeatureCard.astro";
 ---
 
 <Layout>
-    <Hero imageSrc="/img.jpg" title="Välkommen till Mazza House" subtitle="Catering och take away med kärlek till råvaror och smaker.">
-        <a href="/catering" class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition">Catering</a>
-        <a href="/take-away" class="px-6 py-3 rounded border border-white/70 text-white font-semibold hover:bg-white hover:text-black transition">Take Away</a>
-    </Hero>
+<Hero imageSrc="/img.png" title="Välkommen till Mazza House" subtitle="Catering och take away med kärlek till råvaror och smaker.">
+<a href="/catering" class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition">Catering</a>
+<a href="/take-away" class="px-6 py-3 rounded border border-white/70 text-white font-semibold hover:bg-white hover:text-black transition">Take Away</a>
+</Hero>
 
-    <!-- About -->
-    <section class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 items-center">
+<!-- About -->
+<section class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 items-center">
+    <Reveal>
+    <h2 class="text-3xl md:text-4xl font-bold text-palette-1">Äkta smaker, noggrant tillagat</h2>
+    <p class="mt-5 text-lg text-gray-700 space-y-4">
+        <strong>Jag heter Mahrous</strong>, en arabisk kock som bor och arbetar i Stockholm – Sverige.
+
+        <br /><br />
+
+        Jag har lång erfarenhet av att tillaga <strong>genuina orientaliska och libanesiska rätter</strong> med fokus på smak, balans och hantverk.
+
+        <br /><br />
+
+        Under mina arbetsår har jag arbetat på välkända restauranger i <em>Sverige, Jordanien och Egypten</em>, där jag lärde mig att kombinera den rika orientaliska smaken med moderna inslag som uppskattas av den svenska gästen.
+
+        <br /><br />
+
+        För mig är matlagning inte bara ett yrke – det är <strong>en passion</strong>, <em>en berättelse</em> och <strong>en kärlek till detaljer</strong>.
+
+        <br /><br />
+
+        Varje rätt jag serverar på Mazza House tillagas med stor omsorg och min personliga touch, där jag låter <em>tradition möta kreativitet</em>.
+
+        <br /><br />
+
+        <strong class="text-palette-1 text-xl block mt-4">Mitt mål är enkelt och tydligt:</strong>
+
+        <em>
+            Att erbjuda människor en matupplevelse där den äkta orientaliska smaken möter en vacker och modern stil – och som lämnar varje gäst med ett minne av smak och gästfrihet som inte går att glömma.
+        </em>
+    </p>
+
+    <div class="mt-8 flex gap-3">
+        <a href="/take-away" class="px-5 py-2.5 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition">Take away meny</a>
+        <a href="/catering" class="px-5 py-2.5 rounded border border-palette-1 text-palette-1 font-semibold hover:bg-palette-1 hover:text-white transition">Catering meny</a>
+    </div>
+    </Reveal>
+    <Reveal class="relative h-72 md:h-[420px] rounded-xl overflow-hidden" delayClass="delay-200">
+    <img src="/img1.png" alt="Dishes" class="absolute inset-0 w-full h-full object-cover" />
+    </Reveal>
+</section>
+
+<!-- Features / Highlights -->
+<section class="px-6 py-10">
+    <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <FeatureCard imageSrc="/img2.png" title="Färska råvaror" description="Vi väljer lokalt och säsongsbaserat där det går." />
+        <FeatureCard imageSrc="/img3.png" title="Hantverk" description="Tillagat från grunden med respekt för tekniken。" delayClass="delay-200" />
+        <FeatureCard imageSrc="/img4.png" title="För alla tillfällen" description="Från företagsevent till intima middagar – vi anpassar oss。" delayClass="delay-300" />
+    </div>
+</section>
+
+<!-- Parallax banner -->
+<section class="relative my-20 h-[40vh] md:h-[50vh]">
+    <div class="absolute inset-0" style="background-image:url('/img5.png'); background-size:cover; background-position:center; background-attachment:fixed;"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 h-full flex items-center justify-center">
         <Reveal>
-            <h2 class="text-3xl md:text-4xl font-bold text-palette-1">Äkta smaker, noggrant tillagat</h2>
-            <p class="mt-5 text-lg text-gray-700">
-                Vi serverar rätter inspirerade av traditionella recept med moderna detaljer.
-                Oavsett om det är en större bjudning eller vardagslyx hemma ordnar vi det.
-            </p>
-            <div class="mt-8 flex gap-3">
-                <a href="/take-away" class="px-5 py-2.5 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition">Take away meny</a>
-                <a href="/catering" class="px-5 py-2.5 rounded border border-palette-1 text-palette-1 font-semibold hover:bg-palette-1 hover:text-white transition">Catering meny</a>
-            </div>
+        <p class="text-center text-white text-2xl md:text-3xl font-semibold">Mat lagad med passion, serverad med omtanke.</p>
         </Reveal>
-        <Reveal class="relative h-72 md:h-[420px] rounded-xl overflow-hidden" delayClass="delay-200">
-            <img src="/img1.jpg" alt="Dishes" class="absolute inset-0 w-full h-full object-cover" />
-        </Reveal>
-    </section>
+    </div>
+</section>
 
-    <!-- Features / Highlights -->
-    <section class="px-6 py-10">
-        <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureCard imageSrc="/img2.jpg" title="Färska råvaror" description="Vi väljer lokalt och säsongsbaserat där det går." />
-            <FeatureCard imageSrc="/img3.jpg" title="Hantverk" description="Tillagat från grunden med respekt för tekniken." delayClass="delay-200" />
-            <FeatureCard imageSrc="/img4.jpg" title="För alla tillfällen" description="Från företagsevent till intima middagar – vi anpassar oss." delayClass="delay-300" />
-        </div>
-    </section>
-
-    <!-- Parallax banner -->
-    <section class="relative my-20 h-[40vh] md:h-[50vh]">
-        <div class="absolute inset-0" style="background-image:url('/img5.jpg'); background-size:cover; background-position:center; background-attachment:fixed;"></div>
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 h-full flex items-center justify-center">
-            <Reveal>
-                <p class="text-center text-white text-2xl md:text-3xl font-semibold">Låt oss ta hand om maten</p>
-            </Reveal>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="max-w-6xl mx-auto px-6 pb-24">
-        <Reveal>
-        <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
-            <Reveal><img src="/img.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-            <Reveal delayClass="delay-100"><img src="/img1.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-            <Reveal delayClass="delay-200"><img src="/img2.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-            <Reveal delayClass="delay-300"><img src="/img3.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-            <Reveal delayClass="delay-400"><img src="/img4.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-            <Reveal delayClass="delay-500"><img src="/img5.jpg" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
-        </div>
-        </Reveal>
-    </section>
+<!-- Gallery -->
+<section class="max-w-6xl mx-auto px-6 pb-24">
+    <Reveal>
+    <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
+        <Reveal><img src="/img.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+        <Reveal delayClass="delay-100"><img src="/img1.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+        <Reveal delayClass="delay-200"><img src="/img2.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+        <Reveal delayClass="delay-300"><img src="/img3.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+        <Reveal delayClass="delay-400"><img src="/img4.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+        <Reveal delayClass="delay-500"><img src="/img5.png" alt="Gallery" class="rounded-lg object-cover w-full h-40 md:h-52" /></Reveal>
+    </div>
+    </Reveal>
+</section>
 
 </Layout>
+
