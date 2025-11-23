@@ -6,39 +6,37 @@ import MenuSection from "../components/MenuSection.astro";
 ---
 
 <Layout>
-    <Hero imageSrc="/img2.png" title="Beställ Take Away" subtitle="Ring så förbereder vi din beställning för upphämtning.">
-        <a href="tel:+46701234567" class="px-6 py-3 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition">
-            Ring: +46 70 123 45 67
-        </a>
-    </Hero>
+  <Hero 
+    imageSrc="/img2.png" 
+    title="Beställ Take Away" 
+    subtitle="Ring så förbereder vi din beställning för upphämtning."
+  >
+    <a 
+      href="tel:+47737694399" 
+      class="px-6 py-3 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition"
+    >
+      Ring: +46 73 769 43 99
+    </a>
+  </Hero>
 
-    <!-- Menu -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <Reveal>
-            <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">Meny</h2>
-        </Reveal>
+  <!-- Menu -->
+  <section class="flex flex-col items-center px-6 py-16 space-y-6">
+    <Reveal>
+      <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">Menyer</h2>
+    </Reveal>
 
-        <div class="mt-12 grid lg:grid-cols-3 gap-8">
-            <MenuSection title="Förrätter" items={[
-                { name: 'Hummus med olivolja', description: 'Serveras med nybakat bröd', price: '65 kr' },
-                { name: 'Tabbouleh', description: 'Persilja, bulgur, tomat, citron', price: '75 kr' },
-            ]} />
+    <div class="grid md:grid-cols-2 gap-6">
+      <MenuSection title="Plockmeny" imageSrc="/menyer/Plockmeny.png" />
+      <MenuSection delayClass="delay-50" title="Mat för Två" imageSrc="/menyer/matfor2.png" />
+      <MenuSection delayClass="delay-100" title="Mazza Special" imageSrc="/menyer/mazzapecial.png" />
+      <MenuSection title="Plocka Själv" imageSrc="/menyer/plockasjalv.png" />
+      <MenuSection delayClass="delay-50" title="Rätter" imageSrc="/menyer/ratter.png" />
+      <MenuSection delayClass="delay-100" title="Rulle i Pita" imageSrc="/menyer/rulleipita.png" />
+      <MenuSection title="Sallader" imageSrc="/menyer/sallader.png" />
+      <MenuSection delayClass="delay-50" title="Spett" imageSrc="/menyer/spett.png" />
+    </div>
 
-            <MenuSection delayClass="delay-150" title="Varmrätter" items={[
-                { name: 'Kyckling shawarma-tallrik', description: 'Med ris/sallad, vitlökssås & pickles', price: '135 kr' },
-                { name: 'Falafel-rulle', description: 'Hummus, tahini, grönsaker, pickles', price: '95 kr' },
-                { name: 'Grillad halloumi-sallad', description: 'Krispiga grönsaker, örtdressing', price: '115 kr' },
-            ]} />
-
-            <MenuSection delayClass="delay-300" title="Tillbehör & Dryck" items={[
-                { name: 'Pommes frites', description: 'Krispiga, serveras med dip', price: '45 kr' },
-                { name: 'Vitlökssås / Tahini', description: 'Liten burk vid sidan', price: '15 kr' },
-                { name: 'Läsk / Mineralvatten', price: '25 kr' },
-            ]} />
-        </div>
-
-        <p class="mt-10 text-center text-gray-600 reveal">Informera oss om allergier.</p>
-    </section>
-
-    
+    <p class="mt-10 text-center text-gray-600 reveal">Informera oss om allergier.</p>
+  </section>
 </Layout>
+
