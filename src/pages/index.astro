@@ -7,8 +7,8 @@ import FeatureCard from "../components/FeatureCard.astro";
 
 <Layout>
 <Hero imageSrc="/img.png" title="Välkommen till Mazza House" subtitle="Catering och take away med kärlek till råvaror och smaker.">
-<a href="/catering" class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition">Catering</a>
-<a href="/take-away" class="px-6 py-3 rounded border border-white/70 text-white font-semibold hover:bg-white hover:text-black transition">Take Away</a>
+<a href="/catering" class="px-12 py-4 rounded bg-palette-4 text-white text-2xl font-semibold hover:bg-opacity-90 transition">Catering</a>
+<a href="/take-away" class="px-12 py-4 rounded border border-white/70 text-2xl text-white font-semibold hover:bg-white hover:text-black transition">Take Away</a>
 </Hero>
 
 <!-- About -->
@@ -86,6 +86,50 @@ import FeatureCard from "../components/FeatureCard.astro";
     </div>
     </Reveal>
 </section>
+
+<!-- Extra info: Catering + Öppettider + Avbokning -->
+<section class="max-w-6xl mx-auto px-6 pb-24 mt-10">
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <!-- Catering info -->
+    <div>
+      <h3 class="text-2xl font-bold text-palette-1 mb-3">Catering</h3>
+      <p class="text-gray-700 mb-3">
+        Vi erbjuder professionell catering för både små och stora sällskap.
+        Perfekt för bröllop, företagsfester, kalas och andra evenemang.
+      </p>
+      <a 
+        href="/catering"
+        class="inline-block mt-2 px-5 py-2.5 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition"
+      >
+        Läs mer om catering
+      </a>
+    </div>
+
+    <!-- Högtider -->
+    <div class="flex flex-col justify-start items-center">
+        <h3 class="text-2xl font-bold text-palette-1 mb-3">Högtider</h3>
+        Vid högtider (Jul, Nyår, Påsk, Studenttider) rekommenderar vi att ni försöker beställa maten ca 3 veckor i förväg.
+    </div>
+
+    <!-- Avbokningsinfo -->
+    <div>
+    <h3 class="text-2xl font-bold text-palette-1 mb-3">Avbokning/Ändring</h3>
+      <p class="text-gray-700">
+        Vid avbokning av catering måste du meddela oss via mejl
+        <strong>senast 48 timmar innan</strong> er bokning.
+        Vid ändring måste du meddela oss via mejl.
+        <strong>Senast 24 timmar innan</strong> er bokning.
+        <br /><br />
+        <a href="mailto:info@mazzahouse.se" class="text-palette-1 underline hover:text-palette-3">
+          info@mazzahouse.se
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
 </Layout>
 

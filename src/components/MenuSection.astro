@@ -18,7 +18,7 @@ const { title, imageSrc, delayClass = "" } = Astro.props as Props;
               transition"
       aria-expanded="false"
     >
-      <h3 class="text-xl font-semibold text-palette-1">{title}</h3>
+      <h3 class="text-2xl font-semibold text-palette-1">{title}</h3>
 
       <svg
         class="icon w-6 h-6 transition-transform duration-300"
@@ -30,13 +30,13 @@ const { title, imageSrc, delayClass = "" } = Astro.props as Props;
       </svg>
     </button>
 
-    <div class="menu-content overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+    <div class="menu-content overflow-hidden transition-all duration-500 ease-in-out 
+                max-h-0">
       <img
         src={imageSrc}
         alt={title}
-        class="w-full block"
+        class="w-full block max-h-screen object-contain select-none"
         loading="lazy"
-        style="max-height:60vh; width:100%; object-fit:contain;"
       />
     </div>
   </div>

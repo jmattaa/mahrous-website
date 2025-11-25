@@ -9,10 +9,16 @@ export async function POST({ request }: { request: Request }) {
     const data = {
         name: form.get("name"),
         email: form.get("email"),
+        address: form.get("address"),
+        postal: form.get("postal"),
+        city: form.get("city"),
         phone: form.get("phone"),
         date: form.get("date"),
         guests: form.get("guests"),
+        personnummer: form.get("personnummer"),
+        leverans: form.get("leverans"),
         package: form.get("package"),
+        payment: form.get("payment"),
         message: form.get("message"),
     };
 
@@ -36,8 +42,14 @@ export async function POST({ request }: { request: Request }) {
       <p><strong>Namn:</strong> ${data.name}</p>
       <p><strong>E-post:</strong> ${data.email}</p>
       <p><strong>Telefon:</strong> ${data.phone || '-'}</p>
+      <p><strong>Adress:</strong> ${data.address || '-'}</p>
+      <p><strong>Postnummer:</strong> ${data.postal || '-'}</p>
+      <p><strong>Ort:</strong> ${data.city || '-'}</p>
       <p><strong>Datum:</strong> ${data.date || '-'}</p>
       <p><strong>Gäster:</strong> ${data.guests || '-'}</p>
+      <p><strong>Personnummer:</strong> ${data.personnummer || '-'}</p>
+      <p><strong>Leverans:</strong> ${data.leverans}</p>
+      <p><strong>Betalning:</strong> ${data.payment || '-'}</p>
       <p><strong>Paket:</strong> ${data.package}</p>
       <p><strong>Meddelande:</strong><br>${data.message || '-'}</p>
     `,

@@ -6,10 +6,6 @@ import MenuSection from "../components/MenuSection.astro";
 ---
 
 <Layout>
-
-  <!-- =========================
-       HERO SECTION
-  ========================== -->
   <Hero
     imageSrc="/img4.png"
     title="Catering för alla tillfällen"
@@ -22,18 +18,14 @@ import MenuSection from "../components/MenuSection.astro";
     >
       Skicka förfrågan
     </a>
-    <a
-      href="tel:+468363628"
-      class="px-6 py-3 rounded border border-white/80 text-white font-semibold hover:bg-white hover:text-black transition"
+    <a 
+      href="tel:+47737694399" 
+      class="px-6 py-3 rounded bg-palette-3 text-black font-semibold hover:brightness-95 transition"
     >
-      Ring: +46 836 36 28
+      Ring: +46 73 769 43 99
     </a>
   </Hero>
 
-
-  <!-- =========================
-       MENYER / PACKAGES SECTION
-  ========================== -->
   <section class="mx-auto px-6 py-16">
     <Reveal>
       <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">
@@ -41,24 +33,12 @@ import MenuSection from "../components/MenuSection.astro";
       </h2>
     </Reveal>
 
-    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <MenuSection
-            imageSrc="/menyer/catering/Brons.png"
-            title="Bronspaket"
-        />
-        <MenuSection
-            imageSrc="/menyer/catering/Silver.png"
-            title="Silverpaket"
-        />
-        <MenuSection
-            imageSrc="/menyer/catering/Guld.png"
-            title="Guldspaket"
-        />
-        <MenuSection
-            imageSrc="/menyer/catering/Diamant.png"
-            title="Diamantpaket"
-        />
-
+    <div class="flex flex-col gap-6 mt-10 lg:mx-40">
+        <MenuSection imageSrc="/menyer/catering/Brons.png" title="Bronspaket" />
+        <MenuSection imageSrc="/menyer/catering/Silver.png" title="Silverpaket" />
+        <MenuSection imageSrc="/menyer/catering/Guld.png" title="Guldspaket" />
+        <MenuSection imageSrc="/menyer/catering/Diamant.png" title="Diamantpaket" />
+        <MenuSection imageSrc="/menyer/Plockmeny.png" title="Plockmeny" />
     </div>
 
     <p class="mt-8 text-center text-gray-600 reveal">
@@ -66,10 +46,6 @@ import MenuSection from "../components/MenuSection.astro";
     </p>
   </section>
 
-
-  <!-- =========================
-       REQUEST FORM SECTION
-  ========================== -->
   <section id="forfragan" class="max-w-3xl mx-auto px-6 pb-24">
     <Reveal>
       <h2 class="text-3xl md:text-4xl font-bold text-palette-1 text-center">
@@ -78,74 +54,72 @@ import MenuSection from "../components/MenuSection.astro";
     </Reveal>
 
     <Reveal>
-      <form
-        class="mt-10 grid grid-cols-1 gap-6"
-        method="post"
-        action="/api/mail"
-      >
+      <form class="mt-10 grid grid-cols-1 gap-6" method="post" action="/api/mail">
+
         <!-- CONTACT INFO -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-medium text-gray-700">Namn</label>
-            <input
-              type="text"
-              name="name"
-              required
-              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-            />
+            <input type="text" name="name" required class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700">E-post</label>
-            <input
-              type="email"
-              name="email"
-              required
-              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-            />
+            <input type="email" name="email" required class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+          </div>
+        </div>
+
+        <!-- ADDRESS INFO -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Adress</label>
+            <input type="text" name="address" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Postnummer</label>
+            <input type="text" name="postal" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Stad</label>
+            <input type="text" name="city" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
           </div>
         </div>
 
         <!-- EVENT DETAILS -->
-        <div class="grid md:grid-cols-3 gap-6">
-          <div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="md:col-span-1">
             <label class="block text-sm font-medium text-gray-700">Telefon</label>
-            <input
-              type="tel"
-              name="phone"
-              inputmode="tel"
-              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-            />
+            <input type="tel" name="phone" inputmode="tel" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
           </div>
 
-          <div>
+          <div class="md:col-span-1">
             <label class="block text-sm font-medium text-gray-700">Datum</label>
-            <input
-              type="date"
-              name="date"
-              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-            />
+            <input type="date" name="date" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
           </div>
 
-          <div>
+          <div class="md:col-span-1">
             <label class="block text-sm font-medium text-gray-700">Antal gäster</label>
-            <input
-              type="number"
-              name="guests"
-              min="1"
-              step="1"
-              class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-            />
+            <input id="guests-input" type="number" name="guests" min="1" step="1" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+          </div>
+
+          <div class="md:col-span-1">
+            <label class="block text-sm font-medium text-gray-700">Personnummer</label>
+            <input type="text" name="personnummer" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1" />
           </div>
         </div>
+
+        <!-- DELIVERY CHECKBOX (shown only if >15 guests using JS) -->
+          <label class="flex items-center gap-3 text-gray-700 text-sm">
+            <input type="checkbox" name="leverans" class="h-4 w-4" />
+            Jag önskar uppkörning (endast om fler än 15 gäster)
+          </label>
 
         <!-- PACKAGE SELECTION -->
         <div>
           <label class="block text-sm font-medium text-gray-700">Välj paket</label>
-          <select
-            name="package"
-            class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-          >
+          <select name="package" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1">
             <option value="bronspaket">Bronspaket</option>
             <option value="silverpaket">Silverpaket</option>
             <option value="guldspaket">Guldspaket</option>
@@ -154,32 +128,40 @@ import MenuSection from "../components/MenuSection.astro";
           </select>
         </div>
 
+        <!-- PAYMENT METHOD -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Betalningsmetod</label>
+          <select name="payment" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1">
+            <option value="swish">Swish</option>
+            <option value="kort">Kort</option>
+            <option value="kontant">Kontant</option>
+            <option value="faktura">Faktura</option>
+          </select>
+        </div>
+
         <!-- MESSAGE -->
         <div>
           <label class="block text-sm font-medium text-gray-700">Önskemål / allergier</label>
-          <textarea
-            name="message"
-            rows="5"
-            class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-palette-1"
-          ></textarea>
+          <textarea name="message" rows="5" class="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-palette-1"></textarea>
+        </div>
+
+        <!-- CONSENT REQUIRED -->
+        <div>
+          <label class="flex items-center gap-3 text-gray-700 text-sm">
+            <input type="checkbox" name="consent" required class="h-4 w-4" />
+            Jag godkänner att Mazza House tar emot mina uppgifter*
+          </label>
         </div>
 
         <!-- SUBMIT -->
         <div class="flex items-center justify-between">
-          <p class="text-sm text-gray-600">
-            Vi återkommer vanligtvis inom 24 timmar.
-          </p>
+          <p class="text-sm text-gray-600">Vi återkommer vanligtvis inom 24 timmar.</p>
 
-          <button
-            type="submit"
-            class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition"
-          >
+          <button type="submit" class="px-6 py-3 rounded bg-palette-4 text-white font-semibold hover:bg-opacity-90 transition">
             Skicka
           </button>
         </div>
       </form>
     </Reveal>
   </section>
-
 </Layout>
-

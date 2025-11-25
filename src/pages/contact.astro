@@ -3,62 +3,138 @@ import Layout from "../layout/Layout.astro";
 ---
 
 <Layout>
-  <section class="max-w-4xl mx-auto px-6 py-24 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold text-palette-1 mb-6">Kontakta oss</h1>
-    <p class="text-lg text-gray-700 mb-12">
-      Vi finns här för att svara på dina frågor och förfrågningar. Välj det sätt som passar dig bäst!
-    </p>
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-16 space-y-12">
+      <header class="space-y-4 text-center md:text-left text-black">
+        <p class="text-sm uppercase tracking-[0.25em] text-palette-2">Kontakt</p>
+        <h1 class="text-4xl md:text-5xl font-bold">Planera ditt besök</h1>
+        <p class="text-lg">
+          Hör av dig när du vill boka bord, ordna catering eller bara säga hej. Vi svarar snabbt och hjälper
+          dig gärna att hitta rätt upplevelse hos Mazza House.
+        </p>
+      </header>
 
-    <!-- Contact Info -->
-    <div class="grid md:grid-cols-2 gap-12 mb-16">
-      <div class="flex flex-col items-center border p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold text-palette-1 mb-2">E-post</h2>
-        <a href="mailto:youremail@example.com" class="text-lg text-gray-800 hover:text-palette-1 transition">
-          youremail@example.com
-        </a>
-        <p class="text-gray-600 mt-2">Vi återkommer vanligtvis inom 24 timmar.</p>
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="rounded-2xl border border-palette-1 p-8 space-y-4 text-black">
+          <div class="text-sm font-semibold text-palette-2 tracking-[0.2em] uppercase">Besök oss</div>
+          <h2 class="text-2xl font-semibold">Ynglingagatan 3</h2>
+          <p class="leading-relaxed">
+            113 47 Stockholm
+          </p>
+          <div class="pt-4 border-t border-palette-1/40">
+            <p class="text-sm font-semibold uppercase tracking-wide text-palette-2">Öppettider</p>
+            <ul class="mt-2 space-y-1">
+              <li>Vardagar: 09.00–20.00</li>
+              <li>Fredag: 09.00–21.00</li>
+              <li>Lördag: 12.00-21.00</li>
+              <li>Söndag: 12.00–20.00</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="flex flex-col rounded-2xl border border-palette-2 p-8 space-y-6 text-black">
+            <div class="text-sm font-semibold tracking-[0.2em] text-palette-2 uppercase">E-post</div>
+            <h2 class="text-2xl font-semibold">Kontakta oss direkt</h2>
+            <a
+                href="mailto:mazzahouse36@gmail.com"
+                class="rounded-xl border border-palette-1 px-6 py-3 font-semibold text-black hover:bg-palette-3 transition"
+                >
+                mazzahouse36@gmail.com
+            </a>
+                <a 
+                    href="tel:+47737694399" 
+                    class="px-6 py-3 rounded-xl bg-palette-3 text-black font-semibold hover:brightness-95 transition"
+                    >
+                    Ring: +46 73 769 43 99
+                </a>
+        </article>
       </div>
 
-      <div class="flex flex-col items-center border p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold text-palette-1 mb-2">Telefon</h2>
-        <a href="tel:+46701234567" class="text-lg text-gray-800 hover:text-palette-1 transition">
-          +46 70 123 45 67
-        </a>
-        <p class="text-gray-600 mt-2">Ring oss för snabb kontakt.</p>
+      <!-- CONTACT FORM -->
+      <div class="space-y-6">
+          <p class="text-sm uppercase tracking-[0.25em] text-palette-2">Kontakta Oss</p>
+
+          <form method="post" action="/api/contact" class="grid gap-6 rounded-2xl border border-palette-2 p-8 text-black">
+
+              <div>
+                  <label class="block text-sm font-medium text-gray-700">Namn</label>
+                  <input type="text" name="name" required class="mt-2 w-full rounded-md border px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+              </div>
+
+              <div>
+                  <label class="block text-sm font-medium text-gray-700">E-post</label>
+                  <input type="email" name="email" required class="mt-2 w-full rounded-md border px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+              </div>
+
+              <div>
+                  <label class="block text-sm font-medium text-gray-700">Telefon</label>
+                  <input type="tel" name="phone" class="mt-2 w-full rounded-md border px-4 py-2 focus:ring-2 focus:ring-palette-1" />
+              </div>
+
+              <div>
+                  <label class="block text-sm font-medium text-gray-700">Meddelande</label>
+                  <textarea name="message" rows="5" required class="mt-2 w-full rounded-md border px-4 py-2 focus:ring-2 focus:ring-palette-1"></textarea>
+              </div>
+
+              <!-- CONSENT REQUIRED -->
+              <div>
+                  <label class="flex items-center gap-3 text-gray-700 text-sm">
+                      <input type="checkbox" name="consent" required class="h-4 w-4" />
+                      Jag godkänner att Mazza House tar emot mina uppgifter*
+                  </label>
+              </div>
+              <button
+                  type="submit"
+                  class="px-6 py-3 rounded-xl bg-palette-3 text-black font-semibold hover:brightness-95 transition">
+                  Skicka
+              </button>
+          </form>
+      </div>
+
+
+      <div class="space-y-6">
+        <p class="text-sm uppercase tracking-[0.25em] text-palette-2">Sociala medier</p>
+        <div class="grid gap-6 md:grid-cols-3 text-black">
+          <article class="rounded-2xl border border-palette-2 p-6 space-y-4">
+            <h3 class="text-2xl font-semibold">Instagram</h3>
+            <p>
+              <a href="https://www.instagram.com/mazza.house" target="_blank" rel="noreferrer" class="underline text-palette-2">
+                @mazza.house
+              </a>
+              — skanna eller klicka på koden nedan.
+            </p>
+            <a href="https://www.instagram.com/mazza.house" target="_blank" rel="noreferrer" class="block">
+              <img src="/contact/instagram.png" alt="Instagram QR-kod" class="w-48 h-48 object-contain mx-auto" />
+            </a>
+          </article>
+
+          <article class="rounded-2xl border p-6 space-y-4">
+            <h3 class="text-2xl font-semibold">TikTok</h3>
+            <p>
+              <a href="https://www.tiktok.com/@mazzahouse36" target="_blank" rel="noreferrer" class="underline text-palette-2">
+                @mazzahouse36
+              </a>
+              — skanna eller klicka på koden nedan.
+            </p>
+            <a href="https://www.tiktok.com/@mazzahouse36" target="_blank" rel="noreferrer" class="block">
+              <img src="/contact/tiktok.png" alt="TikTok QR-kod" class="w-48 h-48 object-contain mx-auto rounded-lg" />
+            </a>
+          </article>
+          <article class="rounded-2xl border p-6 space-y-4">
+            <h3 class="text-2xl font-semibold">Facebook</h3>
+            <p>
+              <a href="https://www.facebook.com/share/1Cp9fh8STR/" target="_blank" rel="noreferrer" class="underline text-palette-2">
+                @Mazza House
+              </a>
+              — skanna eller klicka på koden nedan.
+            </p>
+            <a href="https://www.facebook.com/share/1Cp9fh8STR/" target="_blank" rel="noreferrer" class="block">
+              <img src="/contact/facebook.png" alt="Facebook QR-kod" class="w-48 h-48 object-contain mx-auto rounded-lg" />
+            </a>
+          </article>
+        </div>
       </div>
     </div>
-
-    <!-- Social Media -->
-    <div class="flex flex-col md:flex-row justify-center gap-8 mb-16">
-      <div class="flex-1 flex flex-col items-center border p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold text-palette-1 mb-2">Instagram</h2>
-        <a href="https://www.instagram.com/youraccount" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-800 hover:text-palette-1 transition">
-          @youraccount
-        </a>
-      </div>
-
-      <div class="flex-1 flex flex-col items-center border p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold text-palette-1 mb-2">Facebook</h2>
-        <a href="https://www.facebook.com/youraccount" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-800 hover:text-palette-1 transition">
-          @youraccount
-        </a>
-      </div>
-
-      <div class="flex-1 flex flex-col items-center border p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold text-palette-1 mb-2">TikTok</h2>
-        <a href="https://www.tiktok.com/@youraccount" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-800 hover:text-palette-1 transition">
-          @youraccount
-        </a>
-      </div>
-    </div>
-
-    <p class="text-gray-700 text-lg">
-      Vi ser fram emot att höra från dig! Följ oss på sociala medier för senaste uppdateringar och erbjudanden.
-    </p>
-
-    var 9-16
-    fr-lo 9-20
-    son 9-15
   </section>
 </Layout>
 
