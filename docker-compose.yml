@@ -1,0 +1,33 @@
+services:
+  traefik:
+    image: traefik:v3.6
+    command:
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.tlschallenge=true"
+      - "--certificatesresolvers.le.acme.email=mazzahouse36@gmail.com"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt:/letsencrypt
+    restart: unless-stopped
+
+  mazzahouse:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - /home/jonathan/mahrous-website:/app
+    command: >
+      sh -c "npm install && HOST=0.0.0.0 PORT=8080 node dist/server/entry.mjs"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mazzahouse.rule=Host(`mazzahouse.se`)"
+      - "traefik.http.routers.mazzahouse.entrypoints=websecure"
+      - "traefik.http.routers.mazzahouse.tls.certresolver=le"
+      - "traefik.http.services.mazzahouse.loadbalancer.server.port=8080"
+    restart: unless-stopped
